@@ -12,7 +12,7 @@ export function Camera({ label, hint, onCapture }: { label: string; hint: string
   const start = async () => {
     setErr("");
     try {
-      stream.current = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user", width: { ideal: 1280 }, height: { ideal: 960 } }, audio: false });
+      stream.current = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "user" }, aspectRatio: { ideal: 4 / 3 }, width: { ideal: 1280 }, height: { ideal: 960 } }, audio: false });
       if (video.current) { video.current.srcObject = stream.current; await video.current.play(); }
     } catch { setErr("Camera blocked. Allow camera access in your browser settings (the page must use HTTPS) and try again."); }
   };

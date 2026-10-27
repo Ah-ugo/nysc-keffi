@@ -56,7 +56,7 @@ export default function Register() {
       {step === 1 && <Stack spacing={5} mt={3}>
         <Box borderLeft={`5px solid ${C.khaki}`} bg="white" p={3}><Text fontWeight={700}>Before you start</Text>
           <UnorderedList fontSize="sm"><ListItem>Face the light: a window or lamp in front of you, never behind.</ListItem><ListItem>No cap or sunglasses. Keep your whole face in the frame.</ListItem><ListItem>Only you in the picture. Hold the phone steady at eye level.</ListItem></UnorderedList></Box>
-        <Camera label="Photo 1: look straight at the camera" hint="Front-facing, neutral face." onCapture={setFront} />
+        <Camera label="Photo 1: look straight at the camera" hint="Face a light source, hold the phone upright, and move close enough for your whole face to fill much of the frame. Remove hats and sunglasses." onCapture={setFront} />
         {front ? <Camera label="Photo 2: turned face" hint="Turn about 30 degrees to one side. Keep both eyes and most of your face visible; do not turn fully sideways." onCapture={setSide} /> : <Text fontSize="sm" color="gray.600">Photo 2 opens after you take photo 1.</Text>}
         <HStack><Button variant="outline" onClick={() => setStep(0)}>Back</Button><Button flex={1} isDisabled={!front || !side} onClick={() => setStep(2)}>Continue</Button></HStack></Stack>}
       {step === 2 && <Stack spacing={4} mt={3}>
